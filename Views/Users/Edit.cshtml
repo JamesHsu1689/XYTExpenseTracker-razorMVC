@@ -1,0 +1,27 @@
+@using ExpenseTracker.Controllers
+@model EditUserRoleVM
+@{
+    ViewData["Title"] = "Edit User Role";
+}
+<h2>Edit Role</h2>
+<div class="card p-3">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label class="form-label">User</label>
+            <div>@Model.Email</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SelectedRole" class="form-label">Role</label>
+            <select asp-for="SelectedRole" class="form-select">
+                <option value="">(none)</option>
+                @foreach (var r in Model.AvailableRoles)
+                {
+                    <option value="@r" selected="@(Model.SelectedRole == r)">@r</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
