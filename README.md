@@ -1,0 +1,5 @@
+- Added db connection
+- Added Identity
+- Added Identity authentication
+- Added role-based Identity authorization
+- Added user management UI
